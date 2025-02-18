@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  car_price_app_2:
+    image: arisa124879/car_price_app_2:latest
+    container_name: car_price_app_2
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.car-price-app.rule=Host(st124879.ml.brain.cs.ait.ac.th)"
+      - "traefik.http.routers.car-price-app.tls=true"
+      - "traefik.http.services.car-price-app.loadbalancer.server.port=788"
+    networks:
+      - traefik_default  
+networks:
+  traefik_default:
+    external: true

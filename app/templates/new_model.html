@@ -1,0 +1,38 @@
+<!-- new_model.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>New Model Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>New Model - Car Price Prediction</h1>
+    <p>{{ message }}</p>
+    <form method="POST">
+        <label for="km_driven">Kilometers Driven (km):</label>
+        <input type="text" name="km_driven" required> 
+    
+        <label for="owner">Owner Type:</label>
+        <select name="owner" required>
+            <option value="1">First Owner</option>
+            <option value="2">Second Owner</option>
+            <option value="3">Third Owner</option>
+            <option value="4">Fourth & Above Owner</option>
+        </select><br>
+    
+        <label for="mileage">Mileage (kmpl):</label>
+        <input type="text" name="mileage" required> 
+    
+        <label for="engine">Engine Capacity (CC):</label>
+        <input type="text" name="engine" required> 
+    
+        <label for="max_power">Max Power (bhp):</label>
+        <input type="text" name="max_power" required> 
+    
+        <button type="submit">Predict</button>
+    </form>
+    {% if prediction %}
+    <h3>Predicted Price: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
